@@ -75,27 +75,31 @@ const Administrator: React.FC = () => {
 
   return (
     <div className="field-officer-container">
-      <div className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
+      <div className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
         <div className="sidebar-header">
-          <div className="logo-text font-bold text-2xl text-orange-500">Road Safe</div>
-          <button 
+          <div className="logo-text font-bold text-2xl text-orange-500">
+            Road Safe
+          </div>
+          {/* <button 
             className="toggle-sidebar"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
             <FaBars />
-          </button>
+          </button> */}
         </div>
         <nav className="sidebar-nav">
           {components.map((comp) => (
             <React.Fragment key={comp.key}>
               <button
-                className={`nav-item ${activePage === comp.key ? 'active' : ''}`}
+                className={`nav-item ${
+                  activePage === comp.key ? "active" : ""
+                }`}
                 onClick={() => setActivePage(comp.key)}
               >
                 {comp.icon}
                 <span>{comp.label}</span>
               </button>
-              {comp.key === 'messages' && (
+              {comp.key === "messages" && (
                 <button className="nav-item logout" onClick={handleLogout}>
                   <FaSignOutAlt />
                   <span>Logout</span>
@@ -118,9 +122,7 @@ const Administrator: React.FC = () => {
             </div>
           </div>
         </header>
-        <div className="content-area">
-          {renderContent()}
-        </div>
+        <div className="content-area">{renderContent()}</div>
       </main>
     </div>
   );

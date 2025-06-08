@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaHome, FaFileAlt, FaComments, FaSignOutAlt, FaBars, FaUserCircle } from 'react-icons/fa';
+import { FaHome, FaFileAlt, FaComments, FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
 import FieldOfficerDashboard from '../components/FieldOfficerDashboard';
 import AccidentReportForm from '../components/AccidentReportForm';
 import Messages from '../components/Messages';
@@ -42,46 +42,43 @@ const FieldOfficer: React.FC = () => {
 
   return (
     <div className="field-officer-container">
-      <div className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
+      <div className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
         <div className="sidebar-header">
           <div className="logo-text">Road Safe</div>
-          <button 
+          {/* <button 
             className="toggle-sidebar"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
             <FaBars />
-          </button>
+          </button> */}
         </div>
 
         <nav className="sidebar-nav">
           <button
-            className={`nav-item ${activePage === 'dashboard' ? 'active' : ''}`}
-            onClick={() => setActivePage('dashboard')}
+            className={`nav-item ${activePage === "dashboard" ? "active" : ""}`}
+            onClick={() => setActivePage("dashboard")}
           >
             <FaHome />
             <span>Dashboard</span>
           </button>
 
           <button
-            className={`nav-item ${activePage === 'report' ? 'active' : ''}`}
-            onClick={() => setActivePage('report')}
+            className={`nav-item ${activePage === "report" ? "active" : ""}`}
+            onClick={() => setActivePage("report")}
           >
             <FaFileAlt />
             <span>Accident Report</span>
           </button>
 
           <button
-            className={`nav-item ${activePage === 'messages' ? 'active' : ''}`}
-            onClick={() => setActivePage('messages')}
+            className={`nav-item ${activePage === "messages" ? "active" : ""}`}
+            onClick={() => setActivePage("messages")}
           >
             <FaComments />
             <span>Messages</span>
           </button>
 
-          <button
-            className="nav-item logout"
-            onClick={handleLogout}
-          >
+          <button className="nav-item logout" onClick={handleLogout}>
             <FaSignOutAlt />
             <span>Logout</span>
           </button>
@@ -91,9 +88,9 @@ const FieldOfficer: React.FC = () => {
       <main className="main-content">
         <header className="content-header">
           <h1>
-            {activePage === 'dashboard' && 'Field Officer Dashboard'}
-            {activePage === 'report' && 'Accident Report Form'}
-            {activePage === 'messages' && 'Messages'}
+            {activePage === "dashboard" && "Field Officer Dashboard"}
+            {activePage === "report" && "Accident Report Form"}
+            {activePage === "messages" && "Messages"}
           </h1>
           <div className="user-info">
             <div className="user-profile">
@@ -124,85 +121,101 @@ const FieldOfficer: React.FC = () => {
                   streetViewControl: false,
                   fullscreenControl: false,
                   styles: [
-                    { elementType: 'geometry', stylers: [{ color: '#f5f5f5' }] },
-                    { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
-                    { elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] },
-                    { elementType: 'labels.text.stroke', stylers: [{ color: '#f5f5f5' }] },
                     {
-                      featureType: 'administrative.land_parcel',
-                      elementType: 'labels.text.fill',
-                      stylers: [{ color: '#bdbdbd' }],
+                      elementType: "geometry",
+                      stylers: [{ color: "#f5f5f5" }],
                     },
                     {
-                      featureType: 'poi',
-                      elementType: 'geometry',
-                      stylers: [{ color: '#eeeeee' }],
+                      elementType: "labels.icon",
+                      stylers: [{ visibility: "off" }],
                     },
                     {
-                      featureType: 'poi',
-                      elementType: 'labels.text.fill',
-                      stylers: [{ color: '#757575' }],
+                      elementType: "labels.text.fill",
+                      stylers: [{ color: "#616161" }],
                     },
                     {
-                      featureType: 'poi.park',
-                      elementType: 'geometry',
-                      stylers: [{ color: '#e5e5e5' }],
+                      elementType: "labels.text.stroke",
+                      stylers: [{ color: "#f5f5f5" }],
                     },
                     {
-                      featureType: 'poi.park',
-                      elementType: 'labels.text.fill',
-                      stylers: [{ color: '#9e9e9e' }],
+                      featureType: "administrative.land_parcel",
+                      elementType: "labels.text.fill",
+                      stylers: [{ color: "#bdbdbd" }],
                     },
                     {
-                      featureType: 'road',
-                      elementType: 'geometry',
-                      stylers: [{ color: '#ffffff' }],
+                      featureType: "poi",
+                      elementType: "geometry",
+                      stylers: [{ color: "#eeeeee" }],
                     },
                     {
-                      featureType: 'road.arterial',
-                      elementType: 'labels.text.fill',
-                      stylers: [{ color: '#757575' }],
+                      featureType: "poi",
+                      elementType: "labels.text.fill",
+                      stylers: [{ color: "#757575" }],
                     },
                     {
-                      featureType: 'road.highway',
-                      elementType: 'geometry',
-                      stylers: [{ color: '#dadada' }],
+                      featureType: "poi.park",
+                      elementType: "geometry",
+                      stylers: [{ color: "#e5e5e5" }],
                     },
                     {
-                      featureType: 'road.highway',
-                      elementType: 'labels.text.fill',
-                      stylers: [{ color: '#616161' }],
+                      featureType: "poi.park",
+                      elementType: "labels.text.fill",
+                      stylers: [{ color: "#9e9e9e" }],
                     },
                     {
-                      featureType: 'road.local',
-                      elementType: 'labels.text.fill',
-                      stylers: [{ color: '#9e9e9e' }],
+                      featureType: "road",
+                      elementType: "geometry",
+                      stylers: [{ color: "#ffffff" }],
                     },
                     {
-                      featureType: 'transit.line',
-                      elementType: 'geometry',
-                      stylers: [{ color: '#e5e5e5' }],
+                      featureType: "road.arterial",
+                      elementType: "labels.text.fill",
+                      stylers: [{ color: "#757575" }],
                     },
                     {
-                      featureType: 'transit.station',
-                      elementType: 'geometry',
-                      stylers: [{ color: '#eeeeee' }],
+                      featureType: "road.highway",
+                      elementType: "geometry",
+                      stylers: [{ color: "#dadada" }],
                     },
                     {
-                      featureType: 'water',
-                      elementType: 'geometry',
-                      stylers: [{ color: '#c9c9c9' }],
+                      featureType: "road.highway",
+                      elementType: "labels.text.fill",
+                      stylers: [{ color: "#616161" }],
                     },
                     {
-                      featureType: 'water',
-                      elementType: 'labels.text.fill',
-                      stylers: [{ color: '#9e9e9e' }],
+                      featureType: "road.local",
+                      elementType: "labels.text.fill",
+                      stylers: [{ color: "#9e9e9e" }],
+                    },
+                    {
+                      featureType: "transit.line",
+                      elementType: "geometry",
+                      stylers: [{ color: "#e5e5e5" }],
+                    },
+                    {
+                      featureType: "transit.station",
+                      elementType: "geometry",
+                      stylers: [{ color: "#eeeeee" }],
+                    },
+                    {
+                      featureType: "water",
+                      elementType: "geometry",
+                      stylers: [{ color: "#c9c9c9" }],
+                    },
+                    {
+                      featureType: "water",
+                      elementType: "labels.text.fill",
+                      stylers: [{ color: "#9e9e9e" }],
                     },
                   ],
                 }}
               >
-                {accidentMarkers.map(marker => (
-                  <Marker key={marker.id} position={marker.position} label={marker.label} />
+                {accidentMarkers.map((marker) => (
+                  <Marker
+                    key={marker.id}
+                    position={marker.position}
+                    label={marker.label}
+                  />
                 ))}
               </GoogleMap>
             </LoadScript>

@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
-import { FaHome, FaClipboardCheck, FaEnvelope, FaSignOutAlt, FaBars, FaUserCircle, FaBell } from 'react-icons/fa';
-import '../App.css';
-import styles from '../styles/pages/Reviewer.module.css';
-import Messages from '../components/Messages';
+import {
+  FaHome,
+  FaClipboardCheck,
+  FaEnvelope,
+  FaSignOutAlt,
+  FaUserCircle,
+  FaBell,
+} from "react-icons/fa";
+import "../App.css";
+import styles from "../styles/pages/Reviewer.module.css";
+import Messages from "../components/Messages";
 
 interface Report {
   id: string;
   date: string;
   location: string;
-  severity: 'High' | 'Medium' | 'Low';
-  status: 'Pending' | 'Approved' | 'Rejected';
+  severity: "High" | "Medium" | "Low";
+  status: "Pending" | "Approved" | "Rejected";
   submittedBy: string;
 }
 
@@ -24,106 +31,121 @@ interface Message {
 
 const initialReports: Report[] = [
   {
-    id: 'REP-1001',
-    date: '2024-03-15',
-    location: 'Sector 21, New Delhi',
-    severity: 'High',
-    status: 'Pending',
-    submittedBy: 'Amit Sharma'
+    id: "REP-1001",
+    date: "2024-03-15",
+    location: "Sector 21, New Delhi",
+    severity: "High",
+    status: "Pending",
+    submittedBy: "Amit Sharma",
   },
   {
-    id: 'REP-1002',
-    date: '2024-03-14',
-    location: 'MG Road, Gurugram',
-    severity: 'Medium',
-    status: 'Approved',
-    submittedBy: 'Priya Singh'
+    id: "REP-1002",
+    date: "2024-03-14",
+    location: "MG Road, Gurugram",
+    severity: "Medium",
+    status: "Approved",
+    submittedBy: "Priya Singh",
   },
   {
-    id: 'REP-1003',
-    date: '2024-03-13',
-    location: 'Ring Road, Delhi',
-    severity: 'Low',
-    status: 'Rejected',
-    submittedBy: 'Rajesh Kumar'
-  }
+    id: "REP-1003",
+    date: "2024-03-13",
+    location: "Ring Road, Delhi",
+    severity: "Low",
+    status: "Rejected",
+    submittedBy: "Rajesh Kumar",
+  },
 ];
 
 const initialMessages: Message[] = [
   {
-    id: 'MSG-001',
-    from: 'Amit Sharma',
-    subject: 'Urgent: Case Validation Required',
-    content: 'Please review the attached case report for validation.',
-    date: '2024-03-15',
-    isRead: false
+    id: "MSG-001",
+    from: "Amit Sharma",
+    subject: "Urgent: Case Validation Required",
+    content: "Please review the attached case report for validation.",
+    date: "2024-03-15",
+    isRead: false,
   },
   {
-    id: 'MSG-002',
-    from: 'Priya Singh',
-    subject: 'Case Update',
-    content: 'The case has been updated with new evidence.',
-    date: '2024-03-14',
-    isRead: true
-  }
+    id: "MSG-002",
+    from: "Priya Singh",
+    subject: "Case Update",
+    content: "The case has been updated with new evidence.",
+    date: "2024-03-14",
+    isRead: true,
+  },
 ];
 
 const Reviewer: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState('dashboard');
+  const [currentPage, setCurrentPage] = useState("dashboard");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [reports, setReports] = useState<Report[]>(initialReports);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filterStatus, setFilterStatus] = useState<string>('all');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterStatus, setFilterStatus] = useState<string>("all");
   const [notifications, setNotifications] = useState(3);
 
   const handleApprove = (id: string) => {
-    setReports(reports.map(report =>
-      report.id === id ? { ...report, status: 'Approved' } : report
-    ));
+    setReports(
+      reports.map((report) =>
+        report.id === id ? { ...report, status: "Approved" } : report
+      )
+    );
   };
 
   const handleReject = (id: string) => {
-    setReports(reports.map(report =>
-      report.id === id ? { ...report, status: 'Rejected' } : report
-    ));
+    setReports(
+      reports.map((report) =>
+        report.id === id ? { ...report, status: "Rejected" } : report
+      )
+    );
   };
 
   const handleLogout = () => {
-    window.location.href = '/login';
+    window.location.href = "/login";
   };
 
-  const filteredReports = reports.filter(report => {
-    const matchesSearch = report.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         report.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         report.submittedBy.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = filterStatus === 'all' || report.status.toLowerCase() === filterStatus.toLowerCase();
+  const filteredReports = reports.filter((report) => {
+    const matchesSearch =
+      report.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      report.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      report.submittedBy.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesFilter =
+      filterStatus === "all" ||
+      report.status.toLowerCase() === filterStatus.toLowerCase();
     return matchesSearch && matchesFilter;
   });
 
   const renderDashboard = () => (
-    <div className={styles['dashboard-content']}>
+    <div className={styles["dashboard-content"]}>
       <div className="dashboard-grid">
         <div className="dashboard-card">
           <h3>Pending Reports</h3>
-          <p className={styles['stat-number']}>{reports.filter(r => r.status === 'Pending').length}</p>
+          <p className={styles["stat-number"]}>
+            {reports.filter((r) => r.status === "Pending").length}
+          </p>
         </div>
         <div className="dashboard-card">
           <h3>Approved Reports</h3>
-          <p className={styles['stat-number']}>{reports.filter(r => r.status === 'Approved').length}</p>
+          <p className={styles["stat-number"]}>
+            {reports.filter((r) => r.status === "Approved").length}
+          </p>
         </div>
         <div className="dashboard-card">
           <h3>Rejected Reports</h3>
-          <p className={styles['stat-number']}>{reports.filter(r => r.status === 'Rejected').length}</p>
+          <p className={styles["stat-number"]}>
+            {reports.filter((r) => r.status === "Rejected").length}
+          </p>
         </div>
         <div className="dashboard-card">
           <h3>Unread Messages</h3>
-          <p className={styles['stat-number']}>{messages.filter(m => !m.isRead).length}</p>
+          <p className={styles["stat-number"]}>
+            {messages.filter((m) => !m.isRead).length}
+          </p>
         </div>
       </div>
-      <div className="dashboard-card" style={{marginTop: '1.5rem'}}>
+      <div className="dashboard-card" style={{ marginTop: "1.5rem" }}>
         <h3>Recent Reports</h3>
-        <div className={styles['reports-table']}>
+        <div className={styles["reports-table"]}>
           <table>
             <thead>
               <tr>
@@ -136,18 +158,26 @@ const Reviewer: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredReports.slice(0, 5).map(report => (
+              {filteredReports.slice(0, 5).map((report) => (
                 <tr key={report.id}>
                   <td>{report.id}</td>
                   <td>{report.date}</td>
                   <td>{report.location}</td>
                   <td>
-                    <span className={`${styles['severity']} ${styles[`severity-${report.severity.toLowerCase()}`]}`}>
+                    <span
+                      className={`${styles["severity"]} ${
+                        styles[`severity-${report.severity.toLowerCase()}`]
+                      }`}
+                    >
                       {report.severity}
                     </span>
                   </td>
                   <td>
-                    <span className={`${styles['status']} ${styles[`status-${report.status.toLowerCase()}`]}`}>
+                    <span
+                      className={`${styles["status"]} ${
+                        styles[`status-${report.status.toLowerCase()}`]
+                      }`}
+                    >
                       {report.status}
                     </span>
                   </td>
@@ -162,11 +192,11 @@ const Reviewer: React.FC = () => {
   );
 
   const renderValidation = () => (
-    <div className={styles['validation-content']}>
-      <div className={styles['validation-header']}>
+    <div className={styles["validation-content"]}>
+      <div className={styles["validation-header"]}>
         <h2>Report Validation</h2>
-        <div className={styles['header-actions']}>
-          <div className={styles['search-bar']}>
+        <div className={styles["header-actions"]}>
+          <div className={styles["search-bar"]}>
             <input
               type="text"
               placeholder="Search reports..."
@@ -174,7 +204,7 @@ const Reviewer: React.FC = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <div className={styles['filter-dropdown']}>
+          <div className={styles["filter-dropdown"]}>
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
@@ -188,7 +218,7 @@ const Reviewer: React.FC = () => {
         </div>
       </div>
 
-      <div className={styles['reports-table']}>
+      <div className={styles["reports-table"]}>
         <table>
           <thead>
             <tr>
@@ -202,33 +232,41 @@ const Reviewer: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredReports.map(report => (
+            {filteredReports.map((report) => (
               <tr key={report.id}>
                 <td>{report.id}</td>
                 <td>{report.date}</td>
                 <td>{report.location}</td>
                 <td>
-                  <span className={`${styles['severity']} ${styles[`severity-${report.severity.toLowerCase()}`]}`}>
+                  <span
+                    className={`${styles["severity"]} ${
+                      styles[`severity-${report.severity.toLowerCase()}`]
+                    }`}
+                  >
                     {report.severity}
                   </span>
                 </td>
                 <td>
-                  <span className={`${styles['status']} ${styles[`status-${report.status.toLowerCase()}`]}`}>
+                  <span
+                    className={`${styles["status"]} ${
+                      styles[`status-${report.status.toLowerCase()}`]
+                    }`}
+                  >
                     {report.status}
                   </span>
                 </td>
                 <td>{report.submittedBy}</td>
                 <td>
-                  {report.status === 'Pending' && (
-                    <div className={styles['action-buttons']}>
+                  {report.status === "Pending" && (
+                    <div className={styles["action-buttons"]}>
                       <button
-                        className={`${styles['action-button']} ${styles['approve']}`}
+                        className={`${styles["action-button"]} ${styles["approve"]}`}
                         onClick={() => handleApprove(report.id)}
                       >
                         Approve
                       </button>
                       <button
-                        className={`${styles['action-button']} ${styles['reject']}`}
+                        className={`${styles["action-button"]} ${styles["reject"]}`}
                         onClick={() => handleReject(report.id)}
                       >
                         Reject
@@ -244,50 +282,58 @@ const Reviewer: React.FC = () => {
     </div>
   );
 
-  const renderMessages = () => (
-    <Messages />
-  );
+  const renderMessages = () => <Messages />;
 
   return (
-    <div className={styles['reviewer-container']}>
-      <div className={`${styles['sidebar']} ${isSidebarOpen ? styles['open'] : styles['closed']}`}>
-        <div className={styles['sidebar-header']}>
-          <div className={styles['logo-text']}>Road Safe</div>
-          <button 
-            className={styles['toggle-sidebar']}
+    <div className={styles["reviewer-container"]}>
+      <div
+        className={`${styles["sidebar"]} ${
+          isSidebarOpen ? styles["open"] : styles["closed"]
+        }`}
+      >
+        <div className={styles["sidebar-header"]}>
+          <div className={styles["logo-text"]}>Road Safe</div>
+          {/* <button
+            className={styles["toggle-sidebar"]}
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
             <FaBars />
-          </button>
+          </button> */}
         </div>
 
-        <nav className={styles['sidebar-nav']}>
+        <nav className={styles["sidebar-nav"]}>
           <button
-            className={`${styles['nav-item']} ${currentPage === 'dashboard' ? styles['active'] : ''}`}
-            onClick={() => setCurrentPage('dashboard')}
+            className={`${styles["nav-item"]} ${
+              currentPage === "dashboard" ? styles["active"] : ""
+            }`}
+            onClick={() => setCurrentPage("dashboard")}
           >
             <FaHome />
             <span>Dashboard</span>
           </button>
 
           <button
-            className={`${styles['nav-item']} ${currentPage === 'validation' ? styles['active'] : ''}`}
-            onClick={() => setCurrentPage('validation')}
+            className={`${styles["nav-item"]} ${
+              currentPage === "validation" ? styles["active"] : ""
+            }`}
+            onClick={() => setCurrentPage("validation")}
           >
             <FaClipboardCheck />
             <span>Report Validation</span>
           </button>
 
           <button
-            className={`${styles['nav-item']} ${currentPage === 'messages' ? styles['active'] : ''}`}
-            onClick={() => setCurrentPage('messages')}
+            className={`${styles["nav-item"]} ${
+              currentPage === "messages" ? styles["active"] : ""
+            }`}
+            onClick={() => setCurrentPage("messages")}
           >
             <FaEnvelope />
             <span>Messages</span>
           </button>
 
           <button
-            className={`${styles['nav-item']} ${styles['logout']}`}
+            className={`${styles["nav-item"]} ${styles["logout"]}`}
             onClick={handleLogout}
           >
             <FaSignOutAlt />
@@ -296,28 +342,28 @@ const Reviewer: React.FC = () => {
         </nav>
       </div>
 
-      <main className={styles['main-content']}>
-        <header className={styles['content-header']}>
+      <main className={styles["main-content"]}>
+        <header className={styles["content-header"]}>
           <h1>
-            {currentPage === 'dashboard' && 'Reviewer Dashboard'}
-            {currentPage === 'validation' && 'Report Validation'}
-            {currentPage === 'messages' && 'Messages'}
+            {currentPage === "dashboard" && "Reviewer Dashboard"}
+            {currentPage === "validation" && "Report Validation"}
+            {currentPage === "messages" && "Messages"}
           </h1>
-          <div className={styles['user-info']}>
-            <div className={styles['user-profile']}>
-              <FaUserCircle className={styles['user-avatar']} />
-              <div className={styles['user-details']}>
-                <span className={styles['user-name']}>Reviewer User</span>
-                <span className={styles['user-role']}>Reviewer</span>
+          <div className={styles["user-info"]}>
+            <div className={styles["user-profile"]}>
+              <FaUserCircle className={styles["user-avatar"]} />
+              <div className={styles["user-details"]}>
+                <span className={styles["user-name"]}>Reviewer User</span>
+                <span className={styles["user-role"]}>Reviewer</span>
               </div>
             </div>
           </div>
         </header>
 
-        <div className={styles['content-area']}>
-          {currentPage === 'dashboard' && renderDashboard()}
-          {currentPage === 'validation' && renderValidation()}
-          {currentPage === 'messages' && renderMessages()}
+        <div className={styles["content-area"]}>
+          {currentPage === "dashboard" && renderDashboard()}
+          {currentPage === "validation" && renderValidation()}
+          {currentPage === "messages" && renderMessages()}
         </div>
       </main>
     </div>

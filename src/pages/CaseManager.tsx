@@ -39,26 +39,35 @@ const CaseManager: React.FC = () => {
   };
 
   return (
-    <div className={styles['case-manager-container']}>
-      <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : styles.closed}`}>
-        <div className={styles['sidebar-header']}>
-          <div className={styles['logo-text']}>Road Safe</div>
-          <button className={styles['toggle-sidebar']} onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+    <div className={styles["case-manager-container"]}>
+      <div
+        className={`${styles.sidebar} ${
+          isSidebarOpen ? styles.open : styles.closed
+        }`}
+      >
+        <div className={styles["sidebar-header"]}>
+          <div className={styles["logo-text"]}>Road Safe</div>
+          {/* <button className={styles['toggle-sidebar']} onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <FaBars />
-          </button>
+          </button> */}
         </div>
-        <nav className={styles['sidebar-nav']}>
+        <nav className={styles["sidebar-nav"]}>
           {components.map((comp) => (
             <React.Fragment key={comp.key}>
               <button
-                className={`${styles['nav-item']} ${activePage === comp.key ? styles.active : ''}`}
+                className={`${styles["nav-item"]} ${
+                  activePage === comp.key ? styles.active : ""
+                }`}
                 onClick={() => setActivePage(comp.key)}
               >
                 {comp.icon}
                 <span>{comp.label}</span>
               </button>
-              {comp.key === 'messages' && (
-                <button className={`${styles['nav-item']} ${styles.logout}`} onClick={handleLogout}>
+              {comp.key === "messages" && (
+                <button
+                  className={`${styles["nav-item"]} ${styles.logout}`}
+                  onClick={handleLogout}
+                >
                   <FaSignOutAlt />
                   <span>Logout</span>
                 </button>
@@ -67,22 +76,20 @@ const CaseManager: React.FC = () => {
           ))}
         </nav>
       </div>
-      <main className={styles['main-content']}>
-        <header className={styles['content-header']}>
+      <main className={styles["main-content"]}>
+        <header className={styles["content-header"]}>
           <h1>{componentTitles[activePage]}</h1>
-          <div className={styles['user-info']}>
-            <div className={styles['user-profile']}>
-              <FaUserCircle className={styles['user-avatar']} />
-              <div className={styles['user-details']}>
-                <span className={styles['user-name']}>Case Manager</span>
-                <span className={styles['user-role']}>Case Manager</span>
+          <div className={styles["user-info"]}>
+            <div className={styles["user-profile"]}>
+              <FaUserCircle className={styles["user-avatar"]} />
+              <div className={styles["user-details"]}>
+                <span className={styles["user-name"]}>Case Manager</span>
+                <span className={styles["user-role"]}>Case Manager</span>
               </div>
             </div>
           </div>
         </header>
-        <div className={styles['content-area']}>
-          {renderContent()}
-        </div>
+        <div className={styles["content-area"]}>{renderContent()}</div>
       </main>
     </div>
   );
