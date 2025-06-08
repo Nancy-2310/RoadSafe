@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaHome, FaClipboardCheck, FaEnvelope, FaSignOutAlt, FaBars, FaUserCircle, FaBell } from 'react-icons/fa';
 import '../App.css';
 import styles from '../styles/pages/Reviewer.module.css';
+import Messages from '../components/Messages';
 
 interface Report {
   id: string;
@@ -244,21 +245,7 @@ const Reviewer: React.FC = () => {
   );
 
   const renderMessages = () => (
-    <div className={styles['messages-content']}>
-      <h2>Messages</h2>
-      <div className={styles['messages-list']}>
-        {messages.map(message => (
-          <div key={message.id} className={`${styles['message-card']} ${!message.isRead ? styles['unread'] : ''}`}>
-            <div className={styles['message-header']}>
-              <span className={styles['message-from']}>{message.from}</span>
-              <span className={styles['message-date']}>{message.date}</span>
-            </div>
-            <h3 className={styles['message-subject']}>{message.subject}</h3>
-            <p className={styles['message-content']}>{message.content}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Messages />
   );
 
   return (

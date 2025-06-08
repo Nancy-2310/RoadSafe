@@ -105,9 +105,28 @@
   font-size: 1.2rem;
 }
 
-.logout {
-  margin-top: auto;
-  color: var(--accent);
+.logout, .nav-item.logout {
+  color: #B91C1C !important;
+  font-weight: bold;
+}
+
+.nav-item.logout,
+.nav-item.logout span,
+.nav-item.logout svg {
+  color: #B91C1C !important;
+  font-weight: bold !important;
+}
+
+.nav-item.logout:hover,
+.nav-item.logout:hover span,
+.nav-item.logout:hover svg {
+  color: #B91C1C !important;
+}
+
+.nav-item.logout:active,
+.nav-item.logout:active span,
+.nav-item.logout:active svg {
+  color: #B91C1C !important;
 }
 
 .main-content {

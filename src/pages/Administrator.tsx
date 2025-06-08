@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaTachometerAlt, FaUsers, FaClipboardList, FaTasks, FaCheckCircle, FaCogs, FaChartBar, FaEnvelope, FaBars, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
+import { FaHome, FaUsers, FaClipboardList, FaTasks, FaCheckCircle, FaCogs, FaChartBar, FaEnvelope, FaBars, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 import AdministratorDashboard from '../components/AdministratorDashboard';
 import UserManagement from '../components/UserManagement';
 import PublicReportAssignment from '../components/PublicReportAssignment';
@@ -15,7 +15,7 @@ import '../styles/components/Reports.module.css';
 
 
 const components = [
-  { key: 'dashboard', label: 'Dashboard', icon: <FaTachometerAlt /> },
+  { key: 'dashboard', label: 'Dashboard', icon: <FaHome /> },
   { key: 'user_management', label: 'User Management', icon: <FaUsers /> },
   { key: 'public_report_assignment', label: 'Public Report Assignment', icon: <FaClipboardList /> },
   { key: 'case_assignment', label: 'Case Assignment', icon: <FaTasks /> },

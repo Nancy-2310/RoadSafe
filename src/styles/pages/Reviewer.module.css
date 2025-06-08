@@ -93,12 +93,17 @@
 }
 
 .logout, .nav-item.logout {
-  color: var(--accent) !important;
+  color: #B91C1C !important;
   font-weight: bold;
 }
 
 .nav-item.logout:hover {
   background: rgba(239, 68, 68, 0.1);
+}
+
+.nav-item.logout span {
+  color: #B91C1C !important;
+  font-weight: bold;
 }
 
 .main-content {
