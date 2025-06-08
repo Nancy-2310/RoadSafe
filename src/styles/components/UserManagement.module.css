@@ -1,0 +1,146 @@
+:root {
+  --primary: #1E3A8A;
+  --accent: #B91C1C;
+  --background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --success: #10B981;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: transparent;
+}
+
+th, td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+}
+
+th {
+  background: #f7f7fa;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #ececec;
+}
+
+tbody tr:nth-child(even) {
+  background: #fafbfc;
+}
+
+tbody tr {
+  transition: background 0.2s;
+}
+
+tbody tr:hover {
+  background: #f2f6ff;
+}
+
+.actionButton {
+  border: none;
+  outline: none;
+  background: #f5f5f7;
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.actionButton:active {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.approve {
+  color: #22c55e;
+  background: #e6fbe9;
+}
+
+.approve:hover {
+  background: #bbf7d0;
+}
+
+.reject {
+  color: #ef4444;
+  background: #ffeaea;
+}
+
+.reject:hover {
+  background: #fecaca;
+}
+
+@media (max-width: 700px) {
+  .card {
+    padding: 1rem 0.5rem;
+  }
+  th, td {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.95rem;
+  }
+  .header {
+    font-size: 1.1rem;
+  }
+}
+
+.um-card {
+  background: #fff;
+  color: var(--text-primary);
+}
+
+.um-header {
+  color: var(--primary);
+}
+
+.um-label {
+  color: var(--text-secondary);
+}
+
+.um-value {
+  color: var(--text-primary);
+}
+
+.um-badge-success {
+  background: #ECFDF5;
+  color: var(--success);
+}
+
+.um-badge-info {
+  background: #E0F2FE;
+  color: var(--info);
+}
+
+.um-badge-accent {
+  background: #FEF2F2;
+  color: var(--accent);
+} 

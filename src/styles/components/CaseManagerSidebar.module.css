@@ -1,0 +1,46 @@
+:root {
+  --primary: #1E3A8A;
+  --accent: #B91C1C;
+  --admin-orange: #FF6B00;
+  --background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --success: #10B981;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
+}
+
+.sidebar {
+  background: #fff;
+  color: var(--text-primary);
+  border-right: 1px solid var(--border);
+}
+
+.sidebar-header {
+  color: var(--admin-orange);
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar-link {
+  color: var(--text-primary);
+  background: transparent;
+  font-weight: 500;
+}
+
+.sidebar-link-active {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 0.5rem;
+}
+
+.sidebar-footer {
+  color: var(--text-secondary);
+  background: var(--background);
+  border-top: 1px solid var(--border);
+}
+
+.sidebar-icon {
+  color: var(--text-primary);
+} 

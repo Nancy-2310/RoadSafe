@@ -1,0 +1,104 @@
+:root {
+  --primary: #1E3A8A;
+  --accent: #B91C1C;
+  --background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --success: #10B981;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
+}
+
+.ad-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ad-card {
+  background: #fff;
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.ad-header {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #FFA500;
+  margin-bottom: 1rem;
+}
+
+.ad-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ad-th {
+  text-align: left;
+  padding: 0.75rem;
+  background-color: #f7fafc;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+.ad-td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ad-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.ad-status-completed {
+  background-color: #c6f6d5;
+  color: #2f855a;
+}
+
+.ad-status-pending {
+  background-color: #fed7d7;
+  color: #c53030;
+}
+
+.ad-assigned {
+  display: inline-flex;
+  align-items: center;
+  color: #4a5568;
+}
+
+.ad-notification {
+  padding: 1rem;
+  background-color: #f7fafc;
+  border-radius: 0.25rem;
+  color: #4a5568;
+}
+
+.ad-label {
+  color: var(--text-secondary);
+}
+
+.ad-value {
+  color: var(--text-primary);
+}
+
+.ad-badge-success {
+  background: #ECFDF5;
+  color: var(--success);
+}
+
+.ad-badge-info {
+  background: #E0F2FE;
+  color: var(--info);
+}
+
+.ad-badge-accent {
+  background: #FEF2F2;
+  color: var(--accent);
+} 

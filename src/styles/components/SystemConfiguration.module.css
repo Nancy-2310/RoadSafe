@@ -1,0 +1,152 @@
+:root {
+  --primary: #1E3A8A;
+  --accent: #B91C1C;
+  --background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --success: #10B981;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
+}
+
+.sc-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sc-card {
+  background: #fff;
+  color: var(--text-primary);
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sc-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.sc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sc-formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sc-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sc-switch {
+  accent-color: #fb923c;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.5em;
+}
+
+.sc-select {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5em;
+  padding: 0.6em 1em;
+  font-size: 1em;
+  background: #fff;
+  color: #222;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.sc-select:focus {
+  border: 1.5px solid #fb923c;
+}
+
+.sc-input {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5em;
+  padding: 0.6em 1em;
+  font-size: 1em;
+  background: #fff;
+  color: #222;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.sc-input:focus {
+  border: 1.5px solid #3182ce;
+}
+
+.sc-saveButton {
+  background: linear-gradient(90deg, #fb923c, #3182ce);
+  color: #fff;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.75em 2em;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 0.5em;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.sc-saveButton:hover {
+  background: linear-gradient(90deg, #3182ce, #fb923c);
+}
+
+.sc-success {
+  margin-top: 1em;
+  color: var(--success);
+  background: #e0f7ef;
+  border-radius: 0.5em;
+  padding: 0.75em 1em;
+  font-weight: 500;
+  text-align: center;
+  font-size: 1em;
+}
+
+.sc-value {
+  color: var(--text-primary);
+}
+
+.sc-badge-success {
+  background: #ECFDF5;
+  color: var(--success);
+}
+
+.sc-badge-info {
+  background: #E0F2FE;
+  color: var(--info);
+}
+
+.sc-badge-accent {
+  background: #FEF2F2;
+  color: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .sc-card {
+    padding: 1rem 0.5rem;
+    max-width: 100%;
+  }
+  .sc-header {
+    font-size: 1.1rem;
+  }
+} 

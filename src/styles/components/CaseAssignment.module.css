@@ -1,0 +1,193 @@
+:root {
+  --primary: #1E3A8A;
+  --accent: #B91C1C;
+  --background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --success: #10B981;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
+}
+
+.ca-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ca-card {
+  background: #fff;
+  color: var(--text-primary);
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ca-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.ca-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: transparent;
+}
+
+.ca-th, .ca-td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+}
+
+.ca-th {
+  background-color: var(--background);
+  color: var(--primary);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+
+.ca-td {
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  background: transparent;
+  font-size: 1rem;
+}
+
+.ca-table tbody tr:nth-child(even) {
+  background: #fafbfc;
+}
+
+.ca-table tbody tr {
+  transition: background 0.2s;
+}
+
+.ca-table tbody tr:hover {
+  background: #f2f6ff;
+}
+
+.ca-severity {
+  font-weight: 600;
+  padding: 0.25em 0.75em;
+  border-radius: 1em;
+  font-size: 0.98em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ca-severity-high {
+  background: #FEF2F2;
+  color: var(--accent);
+}
+
+.ca-severity-medium {
+  background: #E0F2FE;
+  color: var(--info);
+}
+
+.ca-severity-low {
+  background: #ECFDF5;
+  color: var(--success);
+}
+
+.ca-status {
+  font-weight: 600;
+  padding: 0.25em 0.75em;
+  border-radius: 1em;
+  font-size: 0.98em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ca-status-assigned {
+  background: #ECFDF5;
+  color: var(--success);
+}
+
+.ca-status-unassigned {
+  background: #FEF2F2;
+  color: var(--accent);
+}
+
+.ca-assigned {
+  color: #0ea5e9;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.ca-unassigned {
+  color: #bbb;
+  font-style: italic;
+}
+
+.ca-actionButton {
+  border: none;
+  outline: none;
+  background: var(--background);
+  border-radius: 0.5em;
+  padding: 0.5em 1.1em;
+  font-weight: 600;
+  font-size: 1em;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  color: var(--primary);
+}
+
+.ca-assign {
+  background: #E0F2FE;
+  color: var(--info);
+}
+
+.ca-assign:hover {
+  background: #fde68a;
+  color: #ea580c;
+}
+
+.ca-cancel {
+  background: #FEF2F2;
+  color: var(--accent);
+}
+
+.ca-cancel:hover {
+  background: #e5e7eb;
+  color: #ef4444;
+}
+
+.ca-select {
+  border: 1px solid var(--border);
+  border-radius: 0.5em;
+  padding: 0.45em 1em;
+  font-size: 1em;
+  background: #fff;
+  color: var(--text-primary);
+  margin-right: 0.5em;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.ca-select:focus {
+  border: 1.5px solid #fb923c;
+}
+
+@media (max-width: 700px) {
+  .ca-card {
+    padding: 1rem 0.5rem;
+  }
+  .ca-th, .ca-td {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.95rem;
+  }
+  .ca-header {
+    font-size: 1.1rem;
+  }
+} 

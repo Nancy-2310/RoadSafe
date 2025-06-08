@@ -1,0 +1,41 @@
+:root {
+  --primary: #1E3A8A;
+  --accent: #B91C1C;
+  --background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --success: #10B981;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
+}
+
+.id-card {
+  background: #fff;
+  color: var(--text-primary);
+}
+
+.id-header {
+  color: var(--primary);
+}
+
+.id-label {
+  color: var(--text-secondary);
+}
+
+.id-value {
+  color: var(--text-primary);
+}
+
+.id-status-resolved {
+  background: #ECFDF5;
+  color: var(--success);
+}
+
+.id-status-pending {
+  background: #FEF2F2;
+  color: var(--accent);
+}
+
+.id-section {
+  border-bottom: 1px solid var(--border);
+} 

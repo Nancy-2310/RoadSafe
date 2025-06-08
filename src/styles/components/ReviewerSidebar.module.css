@@ -1,0 +1,34 @@
+:root {
+  --primary: #1E3A8A;
+  --accent: #B91C1C;
+  --background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --success: #10B981;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
+}
+
+.sidebar {
+  background: #fff;
+  color: var(--text-primary);
+}
+
+.sidebar-header {
+  color: #FFA500; /* Orange color for 'ROAD SAFE' */
+}
+
+.sidebar-link {
+  color: var(--text-primary);
+}
+
+.sidebar-link-active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.sidebar-footer {
+  color: var(--text-secondary);
+  background: var(--background);
+  border-top: 1px solid var(--border);
+} 

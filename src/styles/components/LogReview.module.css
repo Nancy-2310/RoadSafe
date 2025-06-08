@@ -1,0 +1,42 @@
+:root {
+  --primary: #1E3A8A;
+  --accent: #B91C1C;
+  --background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --success: #10B981;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
+}
+
+.lr-card {
+  background: #fff;
+  color: var(--text-primary);
+}
+
+.lr-header {
+  color: var(--primary);
+}
+
+.lr-label {
+  color: var(--text-secondary);
+}
+
+.lr-value {
+  color: var(--text-primary);
+}
+
+.lr-badge-success {
+  background: #ECFDF5;
+  color: var(--success);
+}
+
+.lr-badge-info {
+  background: #E0F2FE;
+  color: var(--info);
+}
+
+.lr-badge-accent {
+  background: #FEF2F2;
+  color: var(--accent);
+} 

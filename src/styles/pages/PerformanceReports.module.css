@@ -1,0 +1,53 @@
+:root {
+  --primary: #1E3A8A;
+  --accent: #B91C1C;
+  --background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --success: #10B981;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
+}
+
+.pr-dashboard {
+  background-color: var(--background);
+}
+
+.pr-card {
+  background: #fff;
+  color: var(--text-primary);
+}
+
+.pr-header {
+  color: var(--primary);
+}
+
+.pr-table {
+  background: #fff;
+}
+
+.pr-th {
+  background-color: var(--background);
+  color: var(--primary);
+  border-bottom: 1px solid var(--border);
+}
+
+.pr-td {
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.pr-status-completed {
+  background-color: #ECFDF5;
+  color: var(--success);
+}
+
+.pr-status-pending {
+  background-color: #FEF2F2;
+  color: var(--accent);
+}
+
+.pr-notification {
+  background-color: var(--background);
+  color: var(--text-secondary);
+} 

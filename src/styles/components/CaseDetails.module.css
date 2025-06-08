@@ -1,0 +1,96 @@
+:root {
+  --primary: #1E3A8A;
+  --accent: #B91C1C;
+  --background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --success: #10B981;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
+}
+
+.cd-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cd-card {
+  background: #fff;
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.cd-header {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.cd-form-group {
+  margin-bottom: 1rem;
+}
+
+.cd-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.cd-form-group input,
+.cd-form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.cd-form-group input:focus,
+.cd-form-group select:focus {
+  outline: none;
+  border-color: #fb923c;
+}
+
+.cd-submit {
+  background-color: #fb923c;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cd-submit:hover {
+  background-color: #f97316;
+}
+
+.cd-label {
+  color: var(--text-secondary);
+}
+
+.cd-value {
+  color: var(--text-primary);
+}
+
+.cd-badge-success {
+  background: #ECFDF5;
+  color: var(--success);
+}
+
+.cd-badge-info {
+  background: #E0F2FE;
+  color: var(--info);
+}
+
+.cd-badge-accent {
+  background: #FEF2F2;
+  color: var(--accent);
+} 

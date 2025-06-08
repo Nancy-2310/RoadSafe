@@ -1,0 +1,43 @@
+:root {
+  --primary: #1E3A8A;
+  --accent: #B91C1C;
+  --background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --success: #10B981;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
+}
+
+.status-badge {
+  border-radius: 0.5em;
+  padding: 0.25em 0.75em;
+  font-size: 0.95em;
+  font-weight: 500;
+  display: inline-block;
+  border: 1px solid var(--border);
+}
+
+.status-success {
+  background: #ECFDF5;
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.status-info {
+  background: #E0F2FE;
+  color: var(--info);
+  border-color: var(--info);
+}
+
+.status-accent {
+  background: #FEF2F2;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.status-primary {
+  background: var(--background);
+  color: var(--primary);
+  border-color: var(--primary);
+} 
