@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaHome, FaFileAlt, FaCheckCircle, FaChartBar, FaBell, FaComments, FaSignOutAlt, FaBars, FaUserCircle } from 'react-icons/fa';
+import { FaHome, FaFileAlt, FaCheckCircle, FaChartBar, FaBell, FaComments, FaSignOutAlt, FaBars, FaUserCircle, FaClipboardCheck, FaSearch, FaExclamationCircle, FaSync, FaCog } from 'react-icons/fa';
 import AuditorDashboard from '../components/AuditorDashboard';
 import LogReview from '../components/LogReview';
 import CaseValidation from '../components/CaseValidation';
@@ -11,6 +11,43 @@ import styles from '../styles/pages/Auditor.module.css';
 const Auditor: React.FC = () => {
   const [activePage, setActivePage] = useState('dashboard');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [notifications, setNotifications] = useState([
+    {
+      id: 1,
+      type: 'audit',
+      message: 'New audit report available for Case #AUD-2024-001',
+      timestamp: '2024-03-20T10:30:00',
+      read: false
+    },
+    {
+      id: 2,
+      type: 'review',
+      message: 'Case #CM-2024-015 requires audit review',
+      timestamp: '2024-03-20T09:15:00',
+      read: false
+    },
+    {
+      id: 3,
+      type: 'alert',
+      message: 'Audit deadline approaching for Case #AUD-2024-002',
+      timestamp: '2024-03-19T16:45:00',
+      read: false
+    },
+    {
+      id: 4,
+      type: 'update',
+      message: 'Audit findings updated for Case #AUD-2024-003',
+      timestamp: '2024-03-19T14:20:00',
+      read: true
+    },
+    {
+      id: 5,
+      type: 'system',
+      message: 'New audit guidelines have been published',
+      timestamp: '2024-03-19T11:00:00',
+      read: true
+    }
+  ]);
 
   const components = [
     { key: 'dashboard', label: 'Dashboard', icon: <FaHome /> },
@@ -34,10 +71,18 @@ const Auditor: React.FC = () => {
     window.location.href = '/login';
   };
 
+  const markAsRead = (notificationId: number) => {
+    setNotifications(notifications.map(notification =>
+      notification.id === notificationId
+        ? { ...notification, read: true }
+        : notification
+    ));
+  };
+
   const renderContent = () => {
     switch (activePage) {
       case 'dashboard':
-        return <AuditorDashboard />;
+        return <AuditorDashboard notifications={notifications} />;
       case 'log_review':
         return <LogReview />;
       case 'case_validation':
@@ -49,8 +94,45 @@ const Auditor: React.FC = () => {
       case 'messages':
         return <Messages />;
       default:
-        return <AuditorDashboard />;
+        return <AuditorDashboard notifications={notifications} />;
     }
+  };
+
+  const renderNotifications = () => {
+    if (notifications.length === 0) {
+      return (
+        <div className={styles.noNotifications}>
+          No new notifications at this time.
+        </div>
+      );
+    }
+
+    return (
+      <div className={styles.notificationsList}>
+        {notifications.map((notification) => (
+          <div
+            key={notification.id}
+            className={`${styles.notificationItem} ${!notification.read ? styles.unread : ''}`}
+            onClick={() => markAsRead(notification.id)}
+          >
+            <div className={styles.notificationIcon}>
+              {notification.type === 'audit' && <FaClipboardCheck />}
+              {notification.type === 'review' && <FaSearch />}
+              {notification.type === 'alert' && <FaExclamationCircle />}
+              {notification.type === 'update' && <FaSync />}
+              {notification.type === 'system' && <FaCog />}
+            </div>
+            <div className={styles.notificationContent}>
+              <div className={styles.notificationMessage}>{notification.message}</div>
+              <div className={styles.notificationTime}>
+                {new Date(notification.timestamp).toLocaleString()}
+              </div>
+            </div>
+            {!notification.read && <div className={styles.unreadDot} />}
+          </div>
+        ))}
+      </div>
+    );
   };
 
   return (

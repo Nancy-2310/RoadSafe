@@ -1,6 +1,18 @@
 import React from 'react';
-import { FaCalendarAlt, FaExclamationTriangle, FaCheckCircle, FaUserTie } from 'react-icons/fa';
+import { FaCalendarAlt, FaExclamationTriangle, FaCheckCircle, FaUserTie, FaClipboardCheck, FaSearch, FaExclamationCircle, FaSync, FaCog } from 'react-icons/fa';
 import styles from '../styles/components/AuditorDashboard.module.css';
+
+interface Notification {
+  id: number;
+  type: 'audit' | 'review' | 'alert' | 'update' | 'system';
+  message: string;
+  timestamp: string;
+  read: boolean;
+}
+
+interface AuditorDashboardProps {
+  notifications?: Notification[];
+}
 
 const initialTasks = [
   {
@@ -33,7 +45,7 @@ const initialTasks = [
   },
 ];
 
-const AuditorDashboard: React.FC = () => {
+const AuditorDashboard: React.FC<AuditorDashboardProps> = ({ notifications = [] }) => {
   return (
     <div className={styles['ad-dashboard']}>
       <div className={styles['ad-card']}>
@@ -79,9 +91,35 @@ const AuditorDashboard: React.FC = () => {
       </div>
       <div className={styles['ad-card']}>
         <div className={styles['ad-header']}>Notifications</div>
-        <div className={styles['ad-notification']}>
-          <p>No new notifications at this time.</p>
-        </div>
+        {notifications.length === 0 ? (
+          <div className={styles['ad-notification']}>
+            <p>No new notifications at this time.</p>
+          </div>
+        ) : (
+          <div className={styles['ad-notifications-list']}>
+            {notifications.map((notification) => (
+              <div
+                key={notification.id}
+                className={`${styles['ad-notification-item']} ${!notification.read ? styles['ad-unread'] : ''}`}
+              >
+                <div className={styles['ad-notification-icon']}>
+                  {notification.type === 'audit' && <FaClipboardCheck />}
+                  {notification.type === 'review' && <FaSearch />}
+                  {notification.type === 'alert' && <FaExclamationCircle />}
+                  {notification.type === 'update' && <FaSync />}
+                  {notification.type === 'system' && <FaCog />}
+                </div>
+                <div className={styles['ad-notification-content']}>
+                  <div className={styles['ad-notification-message']}>{notification.message}</div>
+                  <div className={styles['ad-notification-time']}>
+                    {new Date(notification.timestamp).toLocaleString()}
+                  </div>
+                </div>
+                {!notification.read && <div className={styles['ad-unread-dot']} />}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
