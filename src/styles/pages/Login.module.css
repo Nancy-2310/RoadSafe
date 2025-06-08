@@ -2,92 +2,278 @@
   --primary: #1E3A8A;
   --accent: #B91C1C;
   --background: #F9FAFB;
+  --info: #0EA5E9;
+  --border: #E5E7EB;
   --text-primary: #111827;
   --text-secondary: #6B7280;
   --success: #10B981;
-  --info: #0EA5E9;
-  --border: #E5E7EB;
 }
 
-.login-container {
+.container {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: var(--background);
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--background) 0%, var(--border) 100%);
 }
 
-.login-card {
-  background: #fff;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+.auth-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  padding: 40px;
   width: 100%;
-  max-width: 400px;
-  color: var(--text-primary);
+  max-width: 480px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
 }
 
-.login-header {
+.auth-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.logo-section {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 32px;
 }
 
-.login-header h1 {
-  font-size: 1.5rem;
+.logo {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--primary), var(--info));
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 15px -3px rgba(30,58,138,0.1);
+}
+
+.logo svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: 700;
   color: var(--primary);
+  margin-bottom: 8px;
 }
 
-.login-header p {
+.logo-subtitle {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.info-banner {
+  background: linear-gradient(135deg, var(--info), var(--primary));
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.info-banner h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.info-banner p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.tab-container {
+  display: flex;
+  background: var(--background);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 32px;
+  border: 1px solid var(--border);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
   color: var(--text-secondary);
 }
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.tab-btn.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(30,58,138,0.1);
+}
+
+.form-section {
+  display: none;
+}
+.form-section.active {
+  display: block;
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  margin-bottom: 20px;
 }
 
-.input-group {
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--border);
-  border-radius: 0.25rem;
-  padding: 0.5rem;
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
 }
 
-.input-icon {
-  color: var(--primary);
-  margin-right: 0.5rem;
-}
-
-input, select {
-  border: none;
-  outline: none;
+.form-input {
   width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: var(--background);
 }
 
-.role-select {
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(30,58,138,0.1);
+}
+
+.form-input.error {
+  border-color: var(--accent);
+  background: #FEF2F2;
+}
+
+.form-input.success {
+  border-color: var(--success);
+  background: #F0FDF4;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
-  color: var(--text-secondary);
-}
-
-.login-button {
-  background-color: var(--primary);
-  color: #fff;
   border: none;
-  border-radius: 0.25rem;
-  padding: 0.75rem;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  color: var(--text-secondary);
+  padding: 4px;
 }
 
-.login-button:hover {
-  background-color: var(--info);
+.error-message {
+  color: var(--accent);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.success-message {
+  color: var(--success);
+  font-size: 13px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.strength-meter {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0%;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--primary), var(--info));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(30,58,138,0.2);
+}
+
+.auth-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.forgot-password {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.role-description {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: block;
+}
+
+.logout, .nav-item.logout {
+  color: var(--accent) !important;
+  font-weight: bold;
 } 

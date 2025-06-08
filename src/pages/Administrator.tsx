@@ -70,8 +70,7 @@ const Administrator: React.FC = () => {
   };
 
   const handleLogout = () => {
-    // Placeholder: implement actual logout logic as needed
-    window.location.reload();
+    window.location.href = '/login';
   };
 
   return (

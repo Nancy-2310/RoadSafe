@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--border);
+  margin-right: 8px;
 }
 
 .sidebar.open {
@@ -62,11 +63,19 @@
   gap: 0.5rem;
 }
 
+.nav-item, .nav-item span {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.nav-item.active, .nav-item.active span {
+  color: #fff;
+}
+
 .nav-item {
   display: flex;
   align-items: center;
   padding: 1rem 1.5rem;
-  color: var(--text-primary);
   text-decoration: none;
   transition: all 0.3s ease;
   border: none;
@@ -86,6 +95,9 @@
 .nav-item.active {
   background: var(--primary);
   color: #fff;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(30,58,138,0.08);
 }
 
 .nav-item svg {
@@ -103,6 +115,7 @@
   padding: 1rem;
   overflow-y: auto;
   background: var(--background);
+  margin-left: 8px;
 }
 
 .content-header {

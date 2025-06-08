@@ -10,8 +10,7 @@ const FieldOfficer: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleLogout = () => {
-    // Handle logout logic
-    console.log('Logging out...');
+    window.location.href = '/login';
   };
 
   const renderContent = () => {
